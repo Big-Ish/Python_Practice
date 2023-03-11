@@ -26,13 +26,13 @@ def winner(usr_choice):
     if cpu == usr_choice:
         print("Tie!")
     elif cpu == 1 and usr_choice == 3:
-        print("Computer wins!")
+        print("Computer wins! Better luck next time ;)")
     elif cpu == 2 and usr_choice == 1:
-        print("Computer wins!")
+        print("Computer wins! Better luck next time ;)")
     elif cpu == 3 and usr_choice == 2:
-        print("Computer wins!")
+        print("Computer wins! Better luck next time ;)")
     else:
-        print("User wins!")
+        print("User wins! Congratulations!")
 
 
 def main():
@@ -54,9 +54,8 @@ def main():
                 if again.lower() == "y":
                     continue
                 else:
-                    print("Program closed!")
+                    print("User didn't press 'y', Program closed!")
                     break
-
         except ValueError:
             print("Input must be an Integer!")
 
