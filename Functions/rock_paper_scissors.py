@@ -32,7 +32,7 @@ def winner(usr_choice):
     elif cpu == 3 and usr_choice == 2:
         print("Computer wins! Better luck next time ;)")
     else:
-        print("User wins! Congratulations!")
+        print("User wins!")
 
 
 def main():
@@ -54,7 +54,7 @@ def main():
                 if again.lower() == "y":
                     continue
                 else:
-                    print("User didn't press 'y', Program closed!")
+                    print("\nUser didn't input 'y'. Program closed!\n")
                     break
         except ValueError:
             print("Input must be an Integer!")
