@@ -1,16 +1,24 @@
-# alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'
-#             , 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 
-#             't', 'u', 'v', 'w', 'x', 'y', 'z']
-
-direction = input("\nType '1' to encrypt, type '2' to decrypt: ")
-text = input("\nType your message: ").lower()
-shift = int(input("\nType the shift number: "))
-encrypted = []
-decrypted = []
+def menu():
+    
+    print(""+
+    "\n"
+    "\n"
+    "   ______                                                       ______                    __                          \n"+
+    "  /      \                                                     /      \                  |  \                         \n"+
+    " |  $$$$$$\ ______   ______   _______  ______   ______        |  $$$$$$\__    __  ______ | $$____   ______   ______   \n"+
+    " | $$   \$$|      \ /      \ /       \/      \ /      \       | $$   \$|  \  |  \/      \| $$    \ /      \ /      \  \n"+
+    " | $$       \$$$$$$|  $$$$$$|  $$$$$$|  $$$$$$|  $$$$$$\      | $$     | $$  | $|  $$$$$$| $$$$$$$|  $$$$$$|  $$$$$$\ \n"+
+    " | $$   __ /      $| $$    $$\$$    \| $$    $| $$   \$$      | $$   __| $$  | $| $$  | $| $$  | $| $$    $| $$   \$$ \n"+
+    " | $$__/  |  $$$$$$| $$$$$$$$_\$$$$$$| $$$$$$$| $$            | $$__/  | $$__/ $| $$__/ $| $$  | $| $$$$$$$| $$       \n"+
+    "  \$$    $$\$$    $$\$$     |       $$\$$     | $$             \$$    $$\$$    $| $$    $| $$  | $$\$$     | $$       \n"+
+    "   \$$$$$$  \$$$$$$$ \$$$$$$$\$$$$$$$  \$$$$$$$\$$              \$$$$$$ _\$$$$$$| $$$$$$$ \$$   \$$ \$$$$$$$\$$       \n"+
+    "                                                                       |  \__| $| $$                                  \n"+
+    "                                                                        \$$    $| $$                                  \n"+
+    "                                                                         \$$$$$$ \$$                                  \n"+
+    "") 
 
 
 #TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
-
 def encrypt(text, shift, encrypted):
     #TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' 
     # forwards in the alphabet by the shift amount and print the encrypted text.
@@ -22,8 +30,9 @@ def encrypt(text, shift, encrypted):
         encrypted[i] = chr(encrypted[i]) # 'chr' converts ascii value back to its str/char value
         
     encrypted_str = "".join(encrypted)
-    print(f"\nEncrypted Text: {encrypted_str}\n")
+    print(f"\nEncrypted Text: {encrypted_str}")
     return encrypted
+
 
 #TODO-2: Decrypt encryption
 def decrypt(text, shift, decrypted):
@@ -35,10 +44,31 @@ def decrypt(text, shift, decrypted):
         decrypted[i] = chr(decrypted[i])
     
     decrypted_str = "".join(decrypted)
-    print(f"\nDecrypted Text: {decrypted_str}\n")
+    print(f"\nDecrypted Text: {decrypted_str}")
 
 
-if direction == "1":
-    encrypt(text, shift, encrypted)
-elif direction == "2":
-    decrypt(text, shift, decrypted)
+def main():
+    menu()
+    while True:
+        direction = input("\nPress '1' to Encrypt or Press '2' to Decrypt: ")
+        if direction == "1" or direction == "2":
+            break
+        else:
+            print("Invalid input!")
+        
+    text = input("\nType your message: ").lower()
+    shift = int(input("\nType the shift number: "))
+    encrypted = []
+    decrypted = []
+    
+    if direction == "1":
+        print("\n--------------------------------")
+        encrypt(text, shift, encrypted)
+        print("\n--------------------------------")
+    elif direction == "2":
+        print("\n--------------------------------")
+        decrypt(text, shift, decrypted)
+        print("\n--------------------------------")
+
+
+main()

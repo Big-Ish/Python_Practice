@@ -4,6 +4,7 @@ import random
 def menu():
     print(
     "\n"
+    "\n"
     "__    __                                                                    \n"+
     "|  \  |  \                                                                  \n"+
     "| $$  | $$  ______   _______    ______   ______ ____    ______   _______    \n"+
@@ -22,6 +23,7 @@ def menu():
 def lose():
     print(
     "\n"
+    "\n"
     " __      __                         __                                 \n"+
     "/  \    /  |                       /  |                                \n"+
     " $$  \  /$$/______   __    __      $$ |  ______    _______   ______    \n"+
@@ -37,6 +39,7 @@ def lose():
 def win():
     print(
     "\n"
+    "\n"
     "                                                                \n"+
     " /$$     /$$                        /$$      /$$ /$$            \n"+
     "|  $$   /$$/                       | $$  /$ | $$|__/            \n"+
@@ -49,46 +52,6 @@ def win():
     "                                                                \n"+
     "                                                                \n"+
     "")
-
-
-def display_f(chosen_word, display):
-    #TODO-3: - Create an empty List called display.
-    #For each letter in the chosen_word, add a "_" to 'display'.
-    #So if the chosen_word was "apple", display should be 
-    # ["_", "_", "_", "_", "_"] with 5 "_" representing each letter to guess.
-    for i in range(len(chosen_word)):
-        display.append("_")
-    return display
-
-
-def guesses(chosen_word, guess, display, tries, guessed):
-    # TODO-4: - Print 'display' and you should see the guessed letter in the correct position and every other letter replace with "_".
-    # Hint - Don't worry about getting the user to guess the next letter. We'll tackle that in step 3.
-    
-    if guess in chosen_word:
-        print("\nCorrect!")
-        for p in range(len(chosen_word)):
-            if chosen_word[p] == guess:
-                display[p] = guess
-    else:
-        tries -= 1
-        print(f'\nIncorrect :( You have {tries} tries left.\n')
-        
-    if guess in chosen_word:
-        guessed.append(guess.upper())
-    else:
-        guessed.append(guess)
-        
-    print("\n   > Already guessed letters || Caps = correct guesses || \n\n\t", guessed)
-    print("\n-------------------------------------------------------------------")
-    print("\n",display)
-    return tries
-
-
-def winner(display):
-    for i in range (len(display)):
-        if "_" not in display:
-            return True
 
 
 def hangman_menu(hangman_pic):
@@ -159,10 +122,53 @@ def hangman_menu(hangman_pic):
     ]
     return hangman_pic
 
+
+def display_f(chosen_word, display):
+    #TODO-3: - Create an empty List called display.
+    #For each letter in the chosen_word, add a "_" to 'display'.
+    #So if the chosen_word was "apple", display should be 
+    # ["_", "_", "_", "_", "_"] with 5 "_" representing each letter to guess.
+    for i in range(len(chosen_word)):
+        display.append("_")
+    return display
+
+
+def guesses(chosen_word, guess, display, tries, guessed):
+    # TODO-4: - Print 'display' and you should see the guessed letter in the correct position and every other letter replace with "_".
+    # Hint - Don't worry about getting the user to guess the next letter. We'll tackle that in step 3.
+    
+    if guess in chosen_word:
+        print("\nCorrect!")
+        for p in range(len(chosen_word)):
+            if chosen_word[p] == guess:
+                display[p] = guess
+    else:
+        tries -= 1
+        print(f'\nIncorrect :( You have {tries} tries left.\n')
+        
+    if guess in chosen_word:
+        guessed.append(guess.upper())
+    else:
+        guessed.append(guess)
+        
+    print("\n   > Already guessed letters || Caps = correct guesses || \n\n\t", guessed)
+    print("\n-------------------------------------------------------------------")
+    print("\n",display)
+    return tries
+
+
+def winner(display):
+    for i in range (len(display)):
+        if "_" not in display:
+            return True
+
+
 def main():
     menu()
     word_list = ["baboon", "camel", "ashik", "nikila,", "ishkanda", "aalok", "conservation", "scandal", "sandal", "randomized", 
-                 "parley", "india", "nepal", "astonishing", "vedula", "mishra", "ikea", "pizza", "cococola", "meatballs", "hangman"]
+                 "parley", "india", "nepal", "astonishing", "ikea", "pizza", "cocacola", "meatballs", "hangman", "symbiotic", 
+                 "represent", "weather", "money", "faculty", "jacket", "headache", "iphone", "android", "anime", "drawing", "youtube",
+                 "tiktok", "instagram", "facebook", "cheating", "macbook", "window", ""]
     display = []
     hangman_pic = []
     tries = 7
@@ -200,7 +206,7 @@ def main():
         
         if winner(display) == True:
             win()
-            print(f'Congrats on guessing the word! \n\nThe word was || {chosen_word.upper()} ||' )
+            print(f'Congrats on guessing the word! \n\nThe word was {chosen_word.upper()}' )
             print("")
             break
         elif tries == 0:
