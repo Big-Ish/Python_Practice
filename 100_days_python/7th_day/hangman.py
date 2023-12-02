@@ -151,7 +151,7 @@ def guesses(chosen_word, guess, display, tries, guessed):
     else:
         guessed.append(guess)
         
-    print("\n   > Already guessed letters || Caps = correct guesses || \n\n\t", guessed)
+    print("\n   > Your guess: Capital letters = correct guesses || \n\n\t", guessed)
     print("\n-------------------------------------------------------------------")
     print("\n",display)
     return tries

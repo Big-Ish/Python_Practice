@@ -31,7 +31,6 @@ def encrypt(text, shift, encrypted):
         
     encrypted_str = "".join(encrypted)
     print(f"\nEncrypted Text: {encrypted_str}")
-    return encrypted
 
 
 #TODO-2: Decrypt encryption
@@ -47,10 +46,14 @@ def decrypt(text, shift, decrypted):
     print(f"\nDecrypted Text: {decrypted_str}")
 
 
+def stored_cyphers(encrypted):
+    print(encrypted)
+
+
 def main():
     menu()
     while True:
-        direction = input("\nPress '1' to Encrypt or Press '2' to Decrypt: ")
+        direction = input("\nPress '1' to Encrypt or Press '2' to Decrypt: and '3' to show ")
         if direction == "1" or direction == "2":
             break
         else:
@@ -69,6 +72,8 @@ def main():
         print("\n--------------------------------")
         decrypt(text, shift, decrypted)
         print("\n--------------------------------")
+    elif direction == "3":
+        stored_cyphers(encrypted)
 
 
 main()
